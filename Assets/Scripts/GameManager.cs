@@ -10,19 +10,17 @@ public class GameManager : MonoBehaviour
     [Header("Player Settings")]
     public GameObject player;
     static public GameObject playerStatic;
-    public bool player_Tired;
-    static public bool playerTired;
+    static public bool playerTired = false;
 
     private void Awake()
     {
         timer = 0;
         playerStatic = player;
-        playerTired = player_Tired;
+
     }
 
     private void Update()
     {
-        playerTired = player_Tired;
         timer += Time.deltaTime;
     }
 }

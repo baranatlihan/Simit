@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 987751436}
   m_Layer: 0
   m_Name: Bot
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -916,7 +916,7 @@ Animator:
   m_GameObject: {fileID: 3831030428755952412}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d78e0f0b538b53e4ca6cd967d6457073, type: 2}
+  m_Controller: {fileID: 9100000, guid: ce73203300d47104d83420dd8ffc62c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -960,7 +960,7 @@ NavMeshAgent:
   m_AutoRepath: 0
   m_Height: 1.75
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6419144847685132003
 MonoBehaviour:

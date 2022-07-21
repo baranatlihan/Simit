@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 
 public class FloatingJoystick : Joystick
 {
+    float timer;
     protected override void Start()
     {
         base.Start();
+
        // background.gameObject.SetActive(false);
     }
 
@@ -23,4 +25,5 @@ public class FloatingJoystick : Joystick
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);
     }
+
 }

@@ -28,28 +28,45 @@ public class BotMovement : MonoBehaviour
         player = GameManager.playerStatic.transform;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         timer += Time.deltaTime;
 
         if (timer >= moveTime && !GameManager.playerTired)
         {
             timer = 0f;
-            navAgent.SetDestination(RandomPoint(bound));
+            if (GameManager.playerStatic.CompareTag("InAreaPlayer"))
+            {
+                navAgent.SetDestination(RandomClosePoint(bound));
+            }
+            else
+            {
+                navAgent.SetDestination(RandomPoint(bound));
+            }
+
         }
         else if (GameManager.playerTired)
         {
-            //"anim change"
             navAgent.SetDestination(player.position);
         }
+  
     }
 
     public static Vector3 RandomPoint(Bounds bound)
     {
         return new Vector3(
         Random.Range(bound.min.x, bound.max.x),
-        Random.Range(bound.min.y, bound.max.y),
+        1,
         Random.Range(bound.min.z, bound.max.z)
+        );
+    }
+
+    public static Vector3 RandomClosePoint(Bounds bound)
+    {
+        return new Vector3(
+        Random.Range(bound.min.x + 7.5f, bound.min.x + 12.5f),
+        1,
+        Random.Range(bound.min.z + 7.5f, bound.min.z + 12.5f)
         );
     }
 

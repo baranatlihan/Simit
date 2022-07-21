@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Animator anim;
     private Joystick joystick;
     public float speed;
     public float rotationSpeed;
+
+    static public float staticSpeed;
+
 
 
     private void Awake()
@@ -15,25 +17,28 @@ public class PlayerControl : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
     }
 
+
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
-        anim.enabled = false;
+        staticSpeed = speed;
     }
 
 
     void FixedUpdate()
     {
-
-
         if (joystick.Horizontal > 0.2f || joystick.Horizontal < -0.2f || joystick.Vertical > 0.2f || joystick.Vertical < -0.2f)
         {
-            anim.enabled = true;
-            transform.position += transform.forward * Time.deltaTime * speed * (Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal));
+            PlayerAnimationScript.animator.SetBool("isIdle", false);
+            PlayerAnimationScript.animator.SetBool("isRunning", true);
+            transform.position += transform.forward * Time.deltaTime * staticSpeed * (Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal));
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, rotationCalculator(), 0), rotationSpeed * Time.deltaTime);
         }
         else
-            anim.enabled = false;
+        {
+            PlayerAnimationScript.animator.SetBool("isIdle", true);
+            PlayerAnimationScript.animator.SetBool("isRunning", false);
+        }
+
 
     }
 
