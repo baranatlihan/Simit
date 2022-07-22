@@ -37,7 +37,8 @@ public class PlayerAnimationScript : MonoBehaviour
         if (GameManager.playerTired)
         {
             animator.SetBool("isTired", true);
-        }else if (!GameManager.playerTired)
+        }
+        else if (!GameManager.playerTired)
         {
             animator.SetBool("isTired", false);
         }

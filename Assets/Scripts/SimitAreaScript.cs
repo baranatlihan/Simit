@@ -5,16 +5,13 @@ using UnityEngine.AI;
 
 public class SimitAreaScript : MonoBehaviour
 {
-    private float tmpSpeed;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            tmpSpeed = PlayerControl.staticSpeed;
-
             PlayerAnimationScript.animator.SetBool("isIdle", true);
             PlayerAnimationScript.animator.SetBool("isRunning", false);
+            PlayerAnimationScript.animator.SetBool("isTired", false);
 
             GameManager.playerTired = false;
             GameManager.playerStatic.tag = "InAreaPlayer";
@@ -29,7 +26,7 @@ public class SimitAreaScript : MonoBehaviour
         if (other.CompareTag("InAreaPlayer"))
         {
             GameManager.playerStatic.tag = "Player";
-            PlayerControl.staticSpeed = tmpSpeed;
+            PlayerControl.staticSpeed = PlayerControl.tmpSpeed;
         }
 
     }

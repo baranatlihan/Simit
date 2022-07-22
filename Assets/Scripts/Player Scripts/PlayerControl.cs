@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private Joystick joystick;
-    public float speed;
-    public float rotationSpeed;
+    public static float tmpSpeed; //for accessing others scripts, speed things.
+    public float speed, rotationSpeed;
+    private float tiredSpeed;
 
     static public float staticSpeed;
 
@@ -15,12 +16,14 @@ public class PlayerControl : MonoBehaviour
     private void Awake()
     {
         joystick = FindObjectOfType<Joystick>();
+        tmpSpeed = speed;
     }
 
 
     private void Start()
     {
         staticSpeed = speed;
+        tiredSpeed = tmpSpeed - 0.75f + (SkillTreeTest.durabilityLevel * 0.05f);
     }
 
 
@@ -37,6 +40,16 @@ public class PlayerControl : MonoBehaviour
         {
             PlayerAnimationScript.animator.SetBool("isIdle", true);
             PlayerAnimationScript.animator.SetBool("isRunning", false);
+        }
+    }
+
+    private void Update()
+    {
+        Debug.Log(tmpSpeed);
+        Debug.Log(staticSpeed);
+        if (PlayerAnimationScript.animator.GetBool("isTired"))
+        {
+            staticSpeed = tiredSpeed;
         }
 
 

@@ -64,9 +64,9 @@ public class BotMovement : MonoBehaviour
     public static Vector3 RandomClosePoint(Bounds bound)
     {
         return new Vector3(
-        Random.Range(bound.min.x + 7.5f, bound.min.x + 12.5f),
+        Random.Range(bound.min.x + 5f, bound.min.x + 15f),
         1,
-        Random.Range(bound.min.z + 7.5f, bound.min.z + 12.5f)
+        Random.Range(bound.min.z + 5f, bound.min.z + 15f)
         );
     }
 
