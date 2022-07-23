@@ -29,5 +29,7 @@ public class SimitAreaScript : MonoBehaviour
             PlayerControl.staticSpeed = PlayerControl.tmpSpeed;
         }
 
+        PlayerAnimationScript.animator.SetBool("InAreaWalk", false);
+
     }
 }

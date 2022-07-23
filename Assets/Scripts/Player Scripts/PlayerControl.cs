@@ -33,6 +33,11 @@ public class PlayerControl : MonoBehaviour
         {
             PlayerAnimationScript.animator.SetBool("isIdle", false);
             PlayerAnimationScript.animator.SetBool("isRunning", true);
+            if (CompareTag("InAreaPlayer"))
+            {
+                PlayerAnimationScript.animator.SetBool("InAreaWalk", true);
+            }
+            else { PlayerAnimationScript.animator.SetBool("InAreaWalk", false); }
             transform.position += transform.forward * Time.deltaTime * staticSpeed * (Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal));
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, rotationCalculator(), 0), rotationSpeed * Time.deltaTime);
         }
@@ -40,19 +45,17 @@ public class PlayerControl : MonoBehaviour
         {
             PlayerAnimationScript.animator.SetBool("isIdle", true);
             PlayerAnimationScript.animator.SetBool("isRunning", false);
+            PlayerAnimationScript.animator.SetBool("InAreaWalk", false);
         }
     }
 
     private void Update()
     {
-        Debug.Log(tmpSpeed);
-        Debug.Log(staticSpeed);
         if (PlayerAnimationScript.animator.GetBool("isTired"))
         {
             staticSpeed = tiredSpeed;
         }
-
-
+        
     }
 
     private float rotationCalculator()
