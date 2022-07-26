@@ -25,11 +25,12 @@ public class SimitAreaScript : MonoBehaviour
     {
         if (other.CompareTag("InAreaPlayer"))
         {
+            PlayerAnimationScript.animator.SetBool("InAreaWalk", false);
             GameManager.playerStatic.tag = "Player";
             PlayerControl.staticSpeed = PlayerControl.tmpSpeed;
         }
 
-        PlayerAnimationScript.animator.SetBool("InAreaWalk", false);
+
 
     }
 }

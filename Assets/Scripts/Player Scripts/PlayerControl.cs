@@ -37,7 +37,6 @@ public class PlayerControl : MonoBehaviour
             {
                 PlayerAnimationScript.animator.SetBool("InAreaWalk", true);
             }
-            else { PlayerAnimationScript.animator.SetBool("InAreaWalk", false); }
             transform.position += transform.forward * Time.deltaTime * staticSpeed * (Mathf.Abs(joystick.Vertical) + Mathf.Abs(joystick.Horizontal));
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, rotationCalculator(), 0), rotationSpeed * Time.deltaTime);
         }
