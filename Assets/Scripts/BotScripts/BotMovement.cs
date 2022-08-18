@@ -18,14 +18,19 @@ public class BotMovement : MonoBehaviour
     private void Awake()
     {
         bound = new Bounds(new Vector3(0,0,0), new Vector3(20f, 0, 20f));
-        
-        navAgent = this.GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
-        navAgent.SetDestination(RandomPoint(bound));
         player = GameManager.playerStatic.transform;
+        navAgent = this.GetComponent<NavMeshAgent>();
+
+        StartCoroutine(spawnAnimCoroutine());
+
+        if (GameManager.playerTired)
+        {
+            navAgent.SetDestination(player.position);
+        }
     }
 
     void Update()
@@ -49,6 +54,7 @@ public class BotMovement : MonoBehaviour
         {
             navAgent.SetDestination(player.position);
         }
+
   
     }
 
@@ -68,6 +74,15 @@ public class BotMovement : MonoBehaviour
         1,
         Random.Range(bound.min.z + 5f, bound.min.z + 15f)
         );
+    }
+
+
+    IEnumerator spawnAnimCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        navAgent.SetDestination(RandomPoint(bound));
+        player = GameManager.playerStatic.transform;
     }
 
 }

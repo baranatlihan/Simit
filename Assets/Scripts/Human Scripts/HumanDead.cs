@@ -8,7 +8,7 @@ public class HumanDead : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !GameManager.playerTired)
         {
             HitToSpawn();
         }
@@ -17,8 +17,10 @@ public class HumanDead : MonoBehaviour
 
     private void HitToSpawn()
     {
+
         Instantiate(ragdollObj, transform.position, gameObject.transform.rotation, transform.parent);
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject);
     }
 
 }

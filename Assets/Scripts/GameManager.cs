@@ -22,6 +22,5 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(PlayerControl.staticSpeed);
     }
 }

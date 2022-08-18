@@ -12,4 +12,5 @@ public class RagdollWhenSpawn : MonoBehaviour
         Destroy(this.gameObject, 3);
     }
 
+
 }

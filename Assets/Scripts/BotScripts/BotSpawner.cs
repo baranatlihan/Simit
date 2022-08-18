@@ -8,29 +8,38 @@ public class BotSpawner : MonoBehaviour
     Vector3 spawnVector;
     float timer;
 
-    public GameObject objToSpawn;
     public int numberToSpawn;
     public float spawnTime;
+    public int TotalSize;
+    private int counter;
+
+    ObjectPooler objectPooler;
+
     private void Awake()
     {
-        bound = new Bounds(new Vector3(0, 0, 0), new Vector3(20f, 0, 20f));
+        bound = new Bounds(new Vector3(0, 0, 3f), new Vector3(8f, 0, 8f));
     }
 
     private void Start()
     {
+        objectPooler = ObjectPooler.Instance;
         timer = 0f;
+        counter = 1;
     }
 
     private void Update()
     {
 
         timer += Time.deltaTime;
-        if (timer > spawnTime)
+        if ((timer > spawnTime) && (counter < TotalSize))
         {
             for (int i = 0; i < numberToSpawn; i++)
             {
                 spawnVector = RandomPoint(bound);
-                Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
+
+                objectPooler.SpawnFromPool("Bot", spawnVector, gameObject.transform.rotation);
+                counter++;
+                //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
             }
             timer = 0;
         }
