@@ -60,6 +60,13 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 
+        IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
+        if(pooledObj != null)
+        {
+            pooledObj.onObjectSpawn();
+        }
+
+
         poolDictionary[tag].Enqueue(objectToSpawn);
         objectToSpawn.transform.parent = GameObject.Find("BotSpawner").transform;
 

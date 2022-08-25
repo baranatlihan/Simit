@@ -232,6 +232,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6310444, y: 1, z: 1.5078404}
   m_Center: {x: -0.005898118, y: 0, z: -0.04662904}
+--- !u!1 &630926113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6018730595823728029, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
+  m_PrefabInstance: {fileID: 1148136606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &630926117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630926113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3979fb9963a664780f98312272e30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +600,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6018730595823728031, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018730595823728031, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 97645c8f444f9f9498143a547fbd3caa, type: 3}
+    - target: {fileID: 6018730595823728031, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6018730595823728031, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6018730596089844919, guid: bd94f524b78d0ba419741f961862f5c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -746,9 +779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d36cca5af61664e8333f093cf86d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberToSpawn: 2
-  spawnTime: 3
-  TotalSize: 20
+  numberToSpawn: 1
+  spawnTime: 5
 --- !u!4 &1181392633
 Transform:
   m_ObjectHideFlags: 0
@@ -812,6 +844,37 @@ MonoBehaviour:
   - tag: Bot
     prefab: {fileID: 2738406303882245934, guid: d174e77c5c2280f48806e008c8917a93, type: 3}
     size: 16
+--- !u!1 &1305091336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305091337}
+  m_Layer: 0
+  m_Name: 'ToDo---> 1)Player: tired to idle- idle to tired animations 2)Bots animatons'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1305091337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305091336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.835, y: 0.5333335, z: 5.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430504105
 GameObject:
   m_ObjectHideFlags: 0

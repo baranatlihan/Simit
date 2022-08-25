@@ -5,11 +5,22 @@ using UnityEngine;
 public class BotAnimationScript : MonoBehaviour
 {
     private Animator animator;
-
+    private bool kickAgain;
 
     private void Start()
     {
+        kickAgain = true;
         animator = GetComponent<Animator>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && GameManager.playerTired && kickAgain)
+        {
+            StartCoroutine(BotKickCoroutine());
+            Debug.Log("KICKED");
+            kickAgain = false;
+        }
     }
 
     void Update()
@@ -30,15 +41,19 @@ public class BotAnimationScript : MonoBehaviour
         else
         {
             animator.SetBool("inArea", false);
-        }
+        }        
     }
 
-    /*IEnumerator KickCoroutine()
+
+    IEnumerator BotKickCoroutine()
     {
-        animator.SetBool("Kick", true);
+        animator.SetBool("BotKick", true);
+        Handheld.Vibrate();
+        HealthBarScript.damage = true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
-        animator.SetBool("Kick", false);
-    }*/
+        animator.SetBool("BotKick", false);
+        kickAgain = true;
+    }
 }

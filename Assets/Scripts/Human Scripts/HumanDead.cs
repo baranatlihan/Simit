@@ -17,7 +17,6 @@ public class HumanDead : MonoBehaviour
 
     private void HitToSpawn()
     {
-
         Instantiate(ragdollObj, transform.position, gameObject.transform.rotation, transform.parent);
         this.gameObject.SetActive(false);
         //Destroy(this.gameObject);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BotMovement : MonoBehaviour
+public class BotMovement : MonoBehaviour, IPooledObject
 {
     Bounds bound;
 
@@ -17,13 +17,13 @@ public class BotMovement : MonoBehaviour
 
     private void Awake()
     {
+        player = GameManager.playerStatic.transform;
+        navAgent = this.GetComponent<NavMeshAgent>();
         bound = new Bounds(new Vector3(0,0,0), new Vector3(20f, 0, 20f));
     }
 
-    private void Start()
+    public void onObjectSpawn()
     {
-        player = GameManager.playerStatic.transform;
-        navAgent = this.GetComponent<NavMeshAgent>();
 
         StartCoroutine(spawnAnimCoroutine());
 

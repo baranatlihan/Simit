@@ -10,8 +10,7 @@ public class BotSpawner : MonoBehaviour
 
     public int numberToSpawn;
     public float spawnTime;
-    public int TotalSize;
-    private int counter;
+
 
     ObjectPooler objectPooler;
 
@@ -24,21 +23,21 @@ public class BotSpawner : MonoBehaviour
     {
         objectPooler = ObjectPooler.Instance;
         timer = 0f;
-        counter = 1;
+
     }
 
     private void Update()
     {
 
         timer += Time.deltaTime;
-        if ((timer > spawnTime) && (counter < TotalSize))
+        if (timer > spawnTime)
         {
             for (int i = 0; i < numberToSpawn; i++)
             {
                 spawnVector = RandomPoint(bound);
 
                 objectPooler.SpawnFromPool("Bot", spawnVector, gameObject.transform.rotation);
-                counter++;
+
                 //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
             }
             timer = 0;
