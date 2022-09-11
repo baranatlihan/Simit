@@ -10,19 +10,28 @@ public class BotSpawner : MonoBehaviour
 
     public int numberToSpawn;
     public float spawnTime;
-
+    public bool spawnWhenStart;
 
     ObjectPooler objectPooler;
 
     private void Awake()
     {
-        bound = new Bounds(new Vector3(0, 0, 3f), new Vector3(8f, 0, 8f));
+        bound = new Bounds(new Vector3(0, 0, 4f), new Vector3(5f, 0, 5f));
+
     }
+
+ 
 
     private void Start()
     {
         objectPooler = ObjectPooler.Instance;
         timer = 0f;
+
+        if (spawnWhenStart)
+        {
+            Spawn();
+        }
+
 
     }
 
@@ -32,14 +41,7 @@ public class BotSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > spawnTime)
         {
-            for (int i = 0; i < numberToSpawn; i++)
-            {
-                spawnVector = RandomPoint(bound);
-
-                objectPooler.SpawnFromPool("Bot", spawnVector, gameObject.transform.rotation);
-
-                //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
-            }
+            Spawn();
             timer = 0;
         }
 
@@ -53,4 +55,20 @@ public class BotSpawner : MonoBehaviour
         Random.Range(bound.min.z, bound.max.z)
         );
     }
+
+
+    private void Spawn()
+    {
+        for (int i = 0; i < numberToSpawn; i++)
+        {
+            spawnVector = RandomPoint(bound);
+
+            objectPooler.SpawnFromPool("Bot", spawnVector, gameObject.transform.rotation);
+
+            //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
+        }
+    }
+
+
+
 }

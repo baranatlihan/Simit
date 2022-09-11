@@ -8,7 +8,7 @@ public class BotMovement : MonoBehaviour, IPooledObject
     Bounds bound;
 
     public Transform player;
-
+  
 
     [Tooltip("AI Movement")]
     public float moveTime = 3;
