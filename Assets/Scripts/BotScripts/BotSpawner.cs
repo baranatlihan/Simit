@@ -26,17 +26,16 @@ public class BotSpawner : MonoBehaviour
     {
         objectPooler = ObjectPooler.Instance;
         timer = 0f;
-
-        if (spawnWhenStart)
-        {
-            Spawn();
-        }
-
-
     }
 
     private void Update()
     {
+
+        if (spawnWhenStart)
+        {
+            Spawn();
+            spawnWhenStart = false;
+        }
 
         timer += Time.deltaTime;
         if (timer > spawnTime)
