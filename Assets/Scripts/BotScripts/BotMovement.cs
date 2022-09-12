@@ -8,7 +8,8 @@ public class BotMovement : MonoBehaviour, IPooledObject
     Bounds bound;
 
     public Transform player;
-  
+
+    public GameObject spawnEffect;
 
     [Tooltip("AI Movement")]
     public float moveTime = 3;
@@ -79,10 +80,12 @@ public class BotMovement : MonoBehaviour, IPooledObject
 
     IEnumerator spawnAnimCoroutine()
     {
+        spawnEffect.SetActive(true);
         yield return new WaitForSeconds(1.5f);
 
         navAgent.SetDestination(RandomPoint(bound));
         player = GameManager.playerStatic.transform;
+        spawnEffect.SetActive(false);
     }
 
 }

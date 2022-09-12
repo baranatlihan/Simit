@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  spawnEffect: {fileID: 8522537274340903713}
   moveTime: 1.75
 --- !u!136 &227818118
 CapsuleCollider:
@@ -302,6 +303,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 133.68126
       objectReference: {fileID: 0}
+    - target: {fileID: 5784561981297277258, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5784561981297277301, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.307
@@ -469,5 +474,10 @@ MonoBehaviour:
 --- !u!4 &3246694547605518149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 796668171905975598, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
+  m_PrefabInstance: {fileID: 2738406304567112299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8522537274340903713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784561981297277258, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
   m_PrefabInstance: {fileID: 2738406304567112299}
   m_PrefabAsset: {fileID: 0}
