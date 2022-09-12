@@ -10,6 +10,7 @@ public class HealthBarScript : MonoBehaviour
     {
         if (damage)
         {
+            Handheld.Vibrate();
             GetComponent<Image>().fillAmount -= 0.025f;
 
             if (GetComponent<Image>().fillAmount == 0)

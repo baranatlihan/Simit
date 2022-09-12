@@ -48,7 +48,6 @@ public class BotAnimationScript : MonoBehaviour
     IEnumerator BotKickCoroutine()
     {
         animator.SetBool("BotKick", true);
-        Handheld.Vibrate();
         HealthBarScript.damage = true;
 
         yield return new WaitForSeconds(1f);
