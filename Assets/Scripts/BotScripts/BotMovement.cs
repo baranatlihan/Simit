@@ -11,6 +11,8 @@ public class BotMovement : MonoBehaviour, IPooledObject
 
     public GameObject spawnEffect;
 
+    private Vector3 tmp;
+
     [Tooltip("AI Movement")]
     public float moveTime = 3;
     private float timer = 0f;
@@ -21,6 +23,7 @@ public class BotMovement : MonoBehaviour, IPooledObject
         player = GameManager.playerStatic.transform;
         navAgent = this.GetComponent<NavMeshAgent>();
         bound = new Bounds(new Vector3(0,0,0), new Vector3(20f, 0, 20f));
+        tmp = transform.position - player.transform.position;
     }
 
     public void onObjectSpawn()
@@ -40,13 +43,19 @@ public class BotMovement : MonoBehaviour, IPooledObject
 
         if (timer >= moveTime && !GameManager.playerTired)
         {
-            timer = 0f;
             if (GameManager.playerStatic.CompareTag("InAreaPlayer"))
             {
                 navAgent.SetDestination(RandomClosePoint(bound));
+                timer = 0f;
             }
-            else
+            else if(Vector3.Distance(transform.position,player.transform.position) < 3f)
             {
+                Debug.Log(Vector3.Distance(transform.position, player.transform.position));
+                tmp = transform.position - player.transform.position;
+                navAgent.SetDestination(transform.position + tmp);
+            }
+            else {
+                timer = 0f;
                 navAgent.SetDestination(RandomPoint(bound));
             }
 
