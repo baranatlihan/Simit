@@ -6,7 +6,7 @@ public class PlanetMovement : MonoBehaviour
 {
     public float rotationSpeed;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.eulerAngles = transform.eulerAngles + new Vector3(0, rotationSpeed, 0) * Time.deltaTime;
     }

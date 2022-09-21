@@ -48,8 +48,9 @@ public class BotMovement : MonoBehaviour, IPooledObject
                 navAgent.SetDestination(RandomClosePoint(bound));
                 timer = 0f;
             }
-            else if(Vector3.Distance(transform.position,player.transform.position) < 3f)
+            else if(Vector3.Distance(transform.position,player.transform.position) < 3.5f)
             {
+                navAgent.speed = 2;
                 Debug.Log(Vector3.Distance(transform.position, player.transform.position));
                 tmp = transform.position - player.transform.position;
                 navAgent.SetDestination(transform.position + tmp);

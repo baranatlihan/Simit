@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class BotSpawner : MonoBehaviour
 {
-    Bounds bound;
+    Bounds bound, boundStart;
     Vector3 spawnVector;
     float timer;
 
     public int numberToSpawn;
     public float spawnTime;
+
+
+    [Header("Spawn When Start")]
     public bool spawnWhenStart;
+    public int numberToSpawnStart;
+    public GameObject spawnPoint;
 
     ObjectPooler objectPooler;
+
+
 
     private void Awake()
     {
         bound = new Bounds(new Vector3(0, 0, 4f), new Vector3(5f, 0, 5f));
-
+        boundStart = new Bounds(spawnPoint.transform.position, new Vector3(3f, 0, 3f));
     }
 
  
@@ -31,9 +38,10 @@ public class BotSpawner : MonoBehaviour
     private void Update()
     {
 
+
         if (spawnWhenStart)
         {
-            Spawn();
+            BeginingSpawn();
             spawnWhenStart = false;
         }
 
@@ -63,6 +71,19 @@ public class BotSpawner : MonoBehaviour
             spawnVector = RandomPoint(bound);
 
             objectPooler.SpawnFromPool("Bot", spawnVector, gameObject.transform.rotation);
+
+            //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
+        }
+    }
+
+    private void BeginingSpawn()
+    {
+        for (int i = 0; i < numberToSpawnStart; i++)
+        {
+
+            spawnVector = RandomPoint(boundStart);
+
+            objectPooler.SpawnFromPool("Bot", spawnVector , gameObject.transform.rotation);
 
             //Instantiate(objToSpawn, spawnVector, gameObject.transform.rotation, transform.parent);
         }

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1388779317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1394269139450983757}
@@ -499,7 +499,7 @@ Transform:
   m_GameObject: {fileID: 1734625594608693239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.45, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7348903803543983466}
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  rotationSpeed: 2
+  rotationSpeed: 2.5
 --- !u!195 &4685928287643377242
 NavMeshAgent:
   m_ObjectHideFlags: 0
