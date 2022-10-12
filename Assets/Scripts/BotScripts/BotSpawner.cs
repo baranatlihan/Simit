@@ -23,7 +23,7 @@ public class BotSpawner : MonoBehaviour
 
     private void Awake()
     {
-        bound = new Bounds(new Vector3(0, 0, 4f), new Vector3(5f, 0, 5f));
+        bound = new Bounds(new Vector3(0, 0, 0f), new Vector3(5f, 0, 5f));
         boundStart = new Bounds(spawnPoint.transform.position, new Vector3(3f, 0, 3f));
     }
 

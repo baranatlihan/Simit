@@ -10,7 +10,7 @@ public class StaminaBarScript : MonoBehaviour
     {                                   
         if (!GameManager.playerTired && PlayerAnimationScript.animator.GetBool("isRunning")) 
         {
-            GetComponent<Image>().fillAmount -= 0.15f * Time.deltaTime; //7.5 sc
+            GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime; //10 sc
 
             if(GetComponent<Image>().fillAmount == 0)
             {
@@ -20,7 +20,7 @@ public class StaminaBarScript : MonoBehaviour
 
         if (GameManager.playerStatic.CompareTag("InAreaPlayer"))
         {
-            GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime; //5 sc
+            GetComponent<Image>().fillAmount += 0.5f * Time.deltaTime; //2 sc
             GameManager.playerTired = false;
         }
     }

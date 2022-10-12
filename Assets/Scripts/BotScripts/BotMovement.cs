@@ -22,7 +22,7 @@ public class BotMovement : MonoBehaviour, IPooledObject
     {
         player = GameManager.playerStatic.transform;
         navAgent = this.GetComponent<NavMeshAgent>();
-        bound = new Bounds(new Vector3(0,0,0), new Vector3(20f, 0, 20f));
+        bound = new Bounds(new Vector3(0,0,2f), new Vector3(5f, 0, 8f));
         tmp = transform.position - player.transform.position;
     }
 
@@ -48,7 +48,7 @@ public class BotMovement : MonoBehaviour, IPooledObject
                 navAgent.SetDestination(RandomClosePoint(bound));
                 timer = 0f;
             }
-            else if(Vector3.Distance(transform.position,player.transform.position) < 3.5f)
+            else if(Vector3.Distance(transform.position,player.transform.position) < 3f)
             {
                 navAgent.speed = 2;
                 Debug.Log(Vector3.Distance(transform.position, player.transform.position));
@@ -81,9 +81,9 @@ public class BotMovement : MonoBehaviour, IPooledObject
     public static Vector3 RandomClosePoint(Bounds bound)
     {
         return new Vector3(
-        Random.Range(bound.min.x + 5f, bound.min.x + 15f),
+        Random.Range(bound.min.x + 1f, bound.min.x + 5f),
         1,
-        Random.Range(bound.min.z + 5f, bound.min.z + 15f)
+        Random.Range(bound.min.z - 2f, bound.min.z + 5f)
         );
     }
 
@@ -91,7 +91,7 @@ public class BotMovement : MonoBehaviour, IPooledObject
     IEnumerator spawnAnimCoroutine()
     {
         spawnEffect.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.65f);
 
         navAgent.SetDestination(RandomPoint(bound));
         player = GameManager.playerStatic.transform;
