@@ -26,6 +26,7 @@ public class PlayerAnimationScript : MonoBehaviour
     IEnumerator AnimatorCoroutine()
     {
         animator.SetBool("Kick", true);
+        GameManager.staticScore++;
 
         yield return new WaitForSeconds(0.5f);
 

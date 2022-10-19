@@ -18,7 +18,6 @@ public class BotAnimationScript : MonoBehaviour
         if (other.CompareTag("Player") && GameManager.playerTired && kickAgain)
         {
             StartCoroutine(BotKickCoroutine());
-            Debug.Log("KICKED");
             kickAgain = false;
         }
     }
