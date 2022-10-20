@@ -45,10 +45,6 @@ public class PlayerAnimationScript : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-            StopCoroutine(AnimatorCoroutine());
-    }
 
     IEnumerator AnimatorCoroutine()
     {
