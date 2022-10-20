@@ -14,25 +14,6 @@ public class PlayerAnimationScript : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bot") && !GameManager.playerTired)       //if or coroutine, which effective?
-        {
-            StartCoroutine(AnimatorCoroutine());
-        }
-
-    }
-
-    IEnumerator AnimatorCoroutine()
-    {
-        animator.SetBool("Kick", true);
-        GameManager.staticScore++;
-
-        yield return new WaitForSeconds(0.5f);
-
-        animator.SetBool("Kick", false);
-    }
-
     private void Update()
     {
         if (GameManager.playerTired)
@@ -53,4 +34,31 @@ public class PlayerAnimationScript : MonoBehaviour
             animator.SetBool("isIdle", false);
         }
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bot") && !GameManager.playerTired)       
+        {
+            StartCoroutine(AnimatorCoroutine());
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+            StopCoroutine(AnimatorCoroutine());
+    }
+
+    IEnumerator AnimatorCoroutine()
+    {
+        animator.SetBool("Kick", true);
+        GameManager.staticScore++;
+
+        yield return new WaitForSeconds(0.4f);
+
+        animator.SetBool("Kick", false);
+    }
+
+
 }

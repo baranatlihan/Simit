@@ -6,10 +6,12 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTMP;
     public GameObject pausePanel;
+    public GameObject minimap;
 
     private void Update()
     {
-        scoreTMP.text = "Score: " + GameManager.staticScore;       
+        scoreTMP.text = "Score: " + GameManager.staticScore;      
+        
     }
 
 
@@ -31,4 +33,17 @@ public class UIManager : MonoBehaviour
             pausePanel.SetActive(true);
         }
     }
+
+    public void MinimapOnOff()
+    {
+        if (minimap.activeInHierarchy)
+        {
+            minimap.SetActive(false);
+        }
+        else
+        {
+            minimap.SetActive(true);
+        }
+    }
+
 }
