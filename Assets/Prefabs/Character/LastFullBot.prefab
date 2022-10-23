@@ -531,6 +531,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.307
       objectReference: {fileID: 0}
+    - target: {fileID: 5784561981297277303, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784561981297277303, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.70980394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784561981297277303, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.627451
+      objectReference: {fileID: 0}
     - target: {fileID: 5793407609144727129, guid: 20b580f154ec31d419890b693e58abb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 3.1891992
